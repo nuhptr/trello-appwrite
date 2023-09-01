@@ -9,7 +9,17 @@ before you start, you need clone and install dependencies using `npm install` or
 ## Dependencies
 
 ```bash
+# Heroicons
+npm install @heroicons/react
 
+# react-avatar
+npm install react-avatar --save
+
+# react-beautiful-dnd (Drag and Drop)
+npm install react-beautiful-dnd --save & npm install @types/react-beautiful-dnd --save-dev
+
+# appwrite
+npm install appwrite
 ```
 
 ## Learn More
