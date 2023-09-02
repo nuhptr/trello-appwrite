@@ -18,8 +18,11 @@ npm install react-avatar --save
 # react-beautiful-dnd (Drag and Drop)
 npm install react-beautiful-dnd --save & npm install @types/react-beautiful-dnd --save-dev
 
-# appwrite
+# appwrite (database)
 npm install appwrite
+
+# zustand (state management)
+npm install zustand
 ```
 
 ## Learn More
