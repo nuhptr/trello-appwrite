@@ -23,6 +23,7 @@ function Header() {
           alt='Trello Logo'
           width={300}
           height={100}
+          priority
           className='w-44 md:w-56 md:pb-0 object-contain cursor-pointer'
           onClick={() => router.push('/')}
         />
