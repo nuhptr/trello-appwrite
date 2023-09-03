@@ -23,9 +23,17 @@ npm install appwrite
 
 # zustand (state management)
 npm install zustand
+
+# openAI (AI)
+npm install openai
 ```
 
 ## Learn More
+
+To learn how to using openAI, take a look at the following resources:
+
+- [OpenAI API](https://beta.openai.com/docs/api-reference/introduction) - learn about OpenAI API.
+- [OpenAI Playground](https://beta.openai.com/playground) - an interactive OpenAI Playground.
 
 To learn more about Next.js, take a look at the following resources:
 
