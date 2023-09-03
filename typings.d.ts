@@ -1,23 +1,23 @@
 interface Board {
-  columns: Map<TypedColumn, Column>;
+  columns: Map<TypeColumn, Column>
 }
 
-type TypedColumn = 'todo' | 'inprogress' | 'done';
+type TypeColumn = 'todo' | 'inprogress' | 'done'
 
 interface Column {
-  id: TypedColumn;
-  todos: Todo[];
+  id: TypeColumn
+  todos: Todo[]
 }
 
-interface Todo extends Models.Document {
-  $id: string;
-  #createdAt: string;
-  title: string;
-  status: string;
-  image?: string;
+interface Todo {
+  $id: string
+  $createdAt: string
+  title: string
+  status: TypeColumn
+  image?: Image
 }
 
 interface Image {
-  bucketId: string;
-  fileId: string;
+  bucketId: string
+  fileId: string
 }

@@ -1,19 +1,19 @@
-import { XCircleIcon } from '@heroicons/react/24/solid';
+import { XCircleIcon } from '@heroicons/react/24/solid'
 import {
   DraggableProvidedDragHandleProps,
   DraggableProvidedDraggableProps,
-} from 'react-beautiful-dnd';
+} from 'react-beautiful-dnd'
 
 interface TodoProps {
-  todo: Todo;
-  index: number;
-  id: TypedColumn;
-  innerRef: (element: HTMLElement | null) => void;
-  draggableProps: DraggableProvidedDraggableProps;
+  todo: Todo
+  index: number
+  id: TypeColumn
+  innerRef: (element: HTMLElement | null) => void
+  draggableProps: DraggableProvidedDraggableProps
   dragHandleProps:
     | DraggableProvidedDragHandleProps
     | null
-    | undefined;
+    | undefined
 }
 
 function TodoCard({
@@ -30,14 +30,16 @@ function TodoCard({
       {...draggableProps}
       {...dragHandleProps}
       ref={innerRef}>
-      <div>
+      <div className='flex justify-between items-center p-5'>
         <p>{todo.title}</p>
         <button className='text-red-500 hover:text-red-600'>
           <XCircleIcon className='ml-5 h-8 w-8' />
         </button>
       </div>
+
+      {/* Add Image Here */}
     </div>
-  );
+  )
 }
 
-export default TodoCard;
+export default TodoCard

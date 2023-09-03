@@ -1,15 +1,16 @@
-import './globals.css';
-import type { Metadata } from 'next';
+import './globals.css'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Trello Appwrite',
-  description: 'Next generation open-source app for Trello',
-};
+  description:
+    'Next generation open-source app for Trello created by nuhptr',
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang='en'>
@@ -19,5 +20,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  );
+  )
 }

@@ -1,19 +1,19 @@
-import { PlusCircleIcon } from '@heroicons/react/24/solid';
-import { Draggable, Droppable } from 'react-beautiful-dnd';
+import { PlusCircleIcon } from '@heroicons/react/24/solid'
+import { Draggable, Droppable } from 'react-beautiful-dnd'
 
-import TodoCard from './TodoCard';
+import TodoCard from './TodoCard'
 
 interface ColumnProps {
-  id: TypedColumn;
-  todos: Todo[];
-  index: number;
+  id: TypeColumn
+  todos: Todo[]
+  index: number
 }
 
-const idToColumnText: { [key in TypedColumn]: string } = {
+const idToColumnText: { [key in TypeColumn]: string } = {
   todo: 'To Do',
   inprogress: 'In Progress',
   done: 'Done',
-};
+}
 
 function Column({ id, todos, index }: ColumnProps) {
   return (
@@ -74,7 +74,7 @@ function Column({ id, todos, index }: ColumnProps) {
         </div>
       )}
     </Draggable>
-  );
+  )
 }
 
-export default Column;
+export default Column
