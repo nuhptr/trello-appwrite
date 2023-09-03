@@ -36,7 +36,12 @@ function Board() {
             {/* Rendering all the column */}
             {Array.from(board.columns.entries()).map(
               ([id, column], index) => (
-                <Column key={id} />
+                <Column
+                  key={id}
+                  id={id}
+                  todos={column.todos}
+                  index={index}
+                />
               )
             )}
           </div>
