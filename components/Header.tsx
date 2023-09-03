@@ -1,16 +1,21 @@
-'use client';
+'use client'
 
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import React from 'react';
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import React from 'react'
 import {
   MagnifyingGlassIcon,
   UserCircleIcon,
-} from '@heroicons/react/24/solid';
-import Avatar from 'react-avatar';
+} from '@heroicons/react/24/solid'
+import Avatar from 'react-avatar'
+import { useBoardStore } from '@/store/BoardStore'
 
 function Header() {
-  const router = useRouter();
+  const router = useRouter()
+  const [searchString, setSearchString] = useBoardStore((state) => [
+    state.searchString,
+    state.setSearchString,
+  ])
 
   return (
     <header>
@@ -33,6 +38,10 @@ function Header() {
           <form className='flex items-center space-x-5 bg-white rounded-md p-2 shadow-md flex-1 md:flex-initial'>
             <MagnifyingGlassIcon className='h-6 w-6 text-gray-400' />
             <input
+              value={searchString}
+              onChange={(event) =>
+                setSearchString(event.target.value)
+              }
               type='text'
               placeholder='Search'
               className='flex-1 outline-none p-2'
@@ -59,7 +68,7 @@ function Header() {
         </p>
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
