@@ -26,6 +26,9 @@ npm install zustand
 
 # openAI (AI)
 npm install openai
+
+# headlessUI (modal)
+npm install @headlessui/react
 ```
 
 ## Learn More
@@ -43,3 +46,7 @@ To learn more about Next.js, take a look at the following resources:
 ## Deploy on Vercel
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+```
+
+```
