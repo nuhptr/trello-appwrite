@@ -1,23 +1,20 @@
 'use client'
 
 import { useEffect } from 'react'
-import {
-  DragDropContext,
-  DropResult,
-  Droppable,
-} from 'react-beautiful-dnd'
+import { DragDropContext, DropResult, Droppable } from 'react-beautiful-dnd'
 
 import { useBoardStore } from '@/store/BoardStore'
 import Column from './Column'
 
 function Board() {
-  const [board, getBoard, setBoardState, updateTodoInDB] =
-    useBoardStore((state) => [
+  const [board, getBoard, setBoardState, updateTodoInDB] = useBoardStore(
+    (state) => [
       state.board,
       state.getBoard,
       state.setBoardState,
       state.updateTodoInDB,
-    ])
+    ]
+  )
 
   useEffect(() => {
     getBoard()
@@ -65,10 +62,7 @@ function Board() {
 
     if (!startCol || !finishCol) return
 
-    if (
-      source.index === destination.index &&
-      startCol === finishCol
-    ) {
+    if (source.index === destination.index && startCol === finishCol) {
       return
     }
 
@@ -113,26 +107,16 @@ function Board() {
 
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
-      <Droppable
-        droppableId='board'
-        direction='horizontal'
-        type='column'>
+      <Droppable droppableId='board' direction='horizontal' type='column'>
         {(provided) => (
           <div
             className='grid grid-cols-1 md:grid-cols-3 gap-5 max-w-7xl mx-auto'
             {...provided.droppableProps}
             ref={provided.innerRef}>
             {/* NOTE: Rendering all the column */}
-            {Array.from(board.columns.entries()).map(
-              ([id, column], index) => (
-                <Column
-                  key={id}
-                  id={id}
-                  todos={column.todos}
-                  index={index}
-                />
-              )
-            )}
+            {Array.from(board.columns.entries()).map(([id, column], index) => (
+              <Column key={id} id={id} todos={column.todos} index={index} />
+            ))}
           </div>
         )}
       </Droppable>
