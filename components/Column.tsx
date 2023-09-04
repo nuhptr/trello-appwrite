@@ -18,10 +18,16 @@ const idToColumnText: { [key in TypeColumn]: string } = {
 }
 
 function Column({ id, todos, index }: ColumnProps) {
-  const [searchString] = useBoardStore((state) => [
+  const [searchString, setNewTaskType] = useBoardStore((state) => [
     state.searchString,
+    state.setNewTaskType,
   ])
   const openModal = useModalStore((state) => state.openModal)
+
+  const handleAddTodo = () => {
+    setNewTaskType(id)
+    openModal()
+  }
 
   return (
     <Draggable draggableId={id} index={index}>
@@ -37,9 +43,7 @@ function Column({ id, todos, index }: ColumnProps) {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
                 className={`p-2 rounded-2xl shadow-sm ${
-                  snapshot.isDraggingOver
-                    ? 'bg-green-200'
-                    : 'bg-white/50'
+                  snapshot.isDraggingOver ? 'bg-green-200' : 'bg-white/50'
                 }`}>
                 <h2 className='flex justify-between font-bold text-xl p-2'>
                   {idToColumnText[id]}
@@ -88,7 +92,7 @@ function Column({ id, todos, index }: ColumnProps) {
 
                   <div className='flex items-end justify-end p-2'>
                     <button
-                      onClick={openModal}
+                      onClick={handleAddTodo}
                       className='text-green-500 hover:text-green-600'>
                       <PlusCircleIcon className='h-10 w-10' />
                     </button>
