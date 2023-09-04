@@ -26,10 +26,15 @@ function Board() {
   const handleOnDragEnd = (result: DropResult) => {
     const { destination, source, type } = result
 
-    // Check if user dragged card outside of board
+    /**
+     * If there is no destination, we don't need to do anything
+     */
     if (!destination) return
 
-    // Handle column drag
+    /**
+     * If type is column, we need to rearrange the columns in the board state and return
+     * as we don't need to update the todos in the db for column rearrangement
+     */
     if (type === 'column') {
       const entries = Array.from(board.columns.entries())
       const [removed] = entries.splice(source.index, 1)
@@ -39,7 +44,10 @@ function Board() {
       setBoardState({ ...board, columns: rearrangedColumns })
     }
 
-    // this step is needed as the indexes are stored as numbers 0, 1, 2, etc. instead of id's with DND Library
+    /**
+     * this step is needed as the indexes are stored as numbers 0, 1, 2, etc. instead of id's with
+     * DND Library and we need to convert them back to id's to get the column from the board state
+     */
     const columns = Array.from(board.columns)
     const startColIndex = columns[Number(source.droppableId)]
     const finishColIndex = columns[Number(destination.droppableId)]
@@ -68,7 +76,7 @@ function Board() {
     const [todoMoved] = newTodos.splice(source.index, 1)
 
     if (startCol.id === finishCol.id) {
-      // Same column task drag
+      /** NOTE: Same Column Task Drag */
       newTodos.splice(destination.index, 0, todoMoved)
       const newColumn = {
         id: startCol.id,
@@ -79,7 +87,7 @@ function Board() {
 
       setBoardState({ ...board, columns: newColumns })
     } else {
-      // Different column task drag
+      /** NOTE: Different Column Task Drag */
       const finishTodos = Array.from(finishCol.todos)
       finishTodos.splice(destination.index, 0, todoMoved)
 
@@ -94,7 +102,9 @@ function Board() {
         todos: finishTodos,
       })
 
-      // update in db
+      /**
+       * NOTE: Update The Todo in the DB
+       */
       updateTodoInDB(todoMoved, finishCol.id)
 
       setBoardState({ ...board, columns: newColumns })
@@ -112,7 +122,7 @@ function Board() {
             className='grid grid-cols-1 md:grid-cols-3 gap-5 max-w-7xl mx-auto'
             {...provided.droppableProps}
             ref={provided.innerRef}>
-            {/* Rendering all the column */}
+            {/* NOTE: Rendering all the column */}
             {Array.from(board.columns.entries()).map(
               ([id, column], index) => (
                 <Column
