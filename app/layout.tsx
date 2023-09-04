@@ -4,8 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Trello Appwrite',
-  description:
-    'Next generation open-source app for Trello created by nuhptr',
+  description: 'Next generation open-source app for Trello created by nuhptr',
 }
 
 export default function RootLayout({
@@ -17,6 +16,7 @@ export default function RootLayout({
     <html lang='en'>
       <body suppressHydrationWarning={true} className='bg-[#f5f6f8]'>
         {children}
+
         {/* don't forget add module to this file */}
         <Modal />
       </body>
