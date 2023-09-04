@@ -6,6 +6,19 @@ This is a simple Trello clone built with [Next.js](https://nextjs.org/), [Appwri
 
 before you start, you need clone and install dependencies using `npm install` or `yarn install`
 
+if you want access domain withour CORS error in appwrite you can change
+domain from localhost to `*` in appwrite dashboard
+
+```bash
+# add .env.local file with your appwrite project id and database id
+NEXT_PUBLIC_APPWRITE_PROJECT_ID=
+NEXT_PUBLIC_DATABASE_ID=
+NEXT_PUBLIC_TODOS_COLLECTION_ID=
+
+# add openai with your api key
+OPENAI_API_KEY=
+```
+
 ## Dependencies
 
 ```bash
