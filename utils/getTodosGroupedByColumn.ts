@@ -19,14 +19,18 @@ export const getTodosGrupedByColumn = async () => {
       title: todo.title,
       status: todo.status,
 
-      // get image if exists on todo
+      /**
+       * If todo.image exists, parse it from a string to an object
+       */
       ...(todo.image && { image: JSON.parse(todo.image) }),
     })
 
     return previous
   }, new Map<TypeColumn, Column>())
 
-  // if columns doesnt have inprogress, todo and done add them with empty todos
+  /**
+   * If a column is missing, add it to the columns map with an empty array of todoss
+   */
   const columnTypes: TypeColumn[] = ['todo', 'inprogress', 'done']
 
   for (const columnType of columnTypes) {
@@ -37,14 +41,19 @@ export const getTodosGrupedByColumn = async () => {
 
   console.log(columns)
 
-  // sort columns by column type
+  /**
+   * Sort columns by columnTypes
+   * 1. todo first (index 0) then inprogress (index 1) then done (index 2)
+   */
   const sortedColumns = new Map(
     Array.from(columns.entries()).sort(
-      (a, b) =>
-        columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0])
+      (a, b) => columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0])
     )
   )
 
+  /**
+   * Create a board object with the sorted columns and return it
+   */
   const board: Board = {
     columns: sortedColumns,
   }
