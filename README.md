@@ -46,7 +46,7 @@ npm install @headlessui/react
 
 ## Learn More
 
-To learn how to using openAI, take a look at the following resources:
+To learn how to use openAI, take a look at the following resources:
 
 - [OpenAI API](https://beta.openai.com/docs/api-reference/introduction) - learn about OpenAI API.
 - [OpenAI Playground](https://beta.openai.com/playground) - an interactive OpenAI Playground.
@@ -59,7 +59,3 @@ To learn more about Next.js, take a look at the following resources:
 ## Deploy on Vercel
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-```
-
-```
