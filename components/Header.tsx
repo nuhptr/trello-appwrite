@@ -3,10 +3,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import {
-  MagnifyingGlassIcon,
-  UserCircleIcon,
-} from '@heroicons/react/24/solid'
+import { MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Avatar from 'react-avatar'
 
 import { useBoardStore } from '@/store/BoardStore'
@@ -14,13 +11,11 @@ import fetchSuggestion from '@/utils/fetchSuggestion'
 
 function Header() {
   const router = useRouter()
-  const [board, searchString, setSearchString] = useBoardStore(
-    (state) => [
-      state.board,
-      state.searchString,
-      state.setSearchString,
-    ]
-  )
+  const [board, searchString, setSearchString] = useBoardStore((state) => [
+    state.board,
+    state.searchString,
+    state.setSearchString,
+  ])
   const [loading, setLoading] = useState<boolean>(false)
   const [suggestion, setSuggestion] = useState<string>('')
 
@@ -59,9 +54,7 @@ function Header() {
             <MagnifyingGlassIcon className='h-6 w-6 text-gray-400' />
             <input
               value={searchString}
-              onChange={(event) =>
-                setSearchString(event.target.value)
-              }
+              onChange={(event) => setSearchString(event.target.value)}
               type='text'
               placeholder='Search'
               className='flex-1 outline-none p-2'
@@ -72,12 +65,7 @@ function Header() {
           </form>
 
           {/* Avatar */}
-          <Avatar
-            name='Siti Nurhasanah'
-            round
-            size='50'
-            color='#0055d1'
-          />
+          <Avatar name='Siti Nurhasanah' round size='50' color='#0055d1' />
         </div>
       </div>
 
