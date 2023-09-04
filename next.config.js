@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ['', 'links.papareact.com'],
+    domains: ['cloud.appwrite.io', 'links.papareact.com'],
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
