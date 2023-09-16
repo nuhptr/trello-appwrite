@@ -33,23 +33,15 @@ function TaskTypeRadioGroup() {
   return (
     <div className='w-full py-5'>
       <div className='mx-auto w-full max-w-md'>
-        <RadioGroup
-          value={newTaskType}
-          onChange={(event) => setNewTaskType(event)}>
+        <RadioGroup value={newTaskType} onChange={(event) => setNewTaskType(event)}>
           <div className='space-y-2'>
             {types.map((type) => (
               <RadioGroup.Option
                 key={type.id}
                 value={type.id}
                 className={({ active, checked }) =>
-                  `${
-                    active
-                      ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 '
-                      : ''
-                  } ${
-                    checked
-                      ? `${type.color} bg-opacity-75 text-white`
-                      : 'bg-white'
+                  `${active ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ' : ''} ${
+                    checked ? `${type.color} bg-opacity-75 text-white` : 'bg-white'
                   } relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
                 }>
                 {({ active, checked }) => (
@@ -59,16 +51,12 @@ function TaskTypeRadioGroup() {
                         <div className='text-sm'>
                           <RadioGroup.Label
                             as='p'
-                            className={`font-bold ${
-                              checked ? 'text-white' : 'text-gray-900'
-                            }`}>
+                            className={`font-bold ${checked ? 'text-white' : 'text-gray-900'}`}>
                             {type.name}
                           </RadioGroup.Label>
                           <RadioGroup.Description
                             as='span'
-                            className={`inline ${
-                              checked ? 'text-white' : 'text-gray-500'
-                            }`}>
+                            className={`inline ${checked ? 'text-white' : 'text-gray-500'}`}>
                             <span>{type.description}</span>
                           </RadioGroup.Description>
                         </div>

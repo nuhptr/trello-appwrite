@@ -32,10 +32,7 @@ function Column({ id, todos, index }: ColumnProps) {
   return (
     <Draggable draggableId={id} index={index}>
       {(provided) => (
-        <div
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          ref={provided.innerRef}>
+        <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
           {/* Render dropable todos in the column */}
           <Droppable droppableId={index.toString()} type='card'>
             {(provided, snapshot) => (
@@ -51,9 +48,7 @@ function Column({ id, todos, index }: ColumnProps) {
                     {!searchString
                       ? todos.length
                       : todos.filter((todo) =>
-                          todo.title
-                            .toLowerCase()
-                            .includes(searchString.toLowerCase())
+                          todo.title.toLowerCase().includes(searchString.toLowerCase())
                         ).length}
                   </span>
                 </h2>
@@ -62,18 +57,13 @@ function Column({ id, todos, index }: ColumnProps) {
                   {todos.map((todo, index) => {
                     if (
                       searchString &&
-                      !todo.title
-                        .toLowerCase()
-                        .includes(searchString.toLowerCase())
+                      !todo.title.toLowerCase().includes(searchString.toLowerCase())
                     ) {
                       return null
                     }
 
                     return (
-                      <Draggable
-                        key={todo.$id}
-                        draggableId={todo.$id}
-                        index={index}>
+                      <Draggable key={todo.$id} draggableId={todo.$id} index={index}>
                         {(provided) => (
                           <TodoCard
                             todo={todo}
@@ -91,9 +81,7 @@ function Column({ id, todos, index }: ColumnProps) {
                   {provided.placeholder}
 
                   <div className='flex items-end justify-end p-2'>
-                    <button
-                      onClick={handleAddTodo}
-                      className='text-green-500 hover:text-green-600'>
+                    <button onClick={handleAddTodo} className='text-green-500 hover:text-green-600'>
                       <PlusCircleIcon className='h-10 w-10' />
                     </button>
                   </div>

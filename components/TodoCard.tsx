@@ -18,14 +18,7 @@ interface TodoProps {
   dragHandleProps: DraggableProvidedDragHandleProps | null | undefined
 }
 
-function TodoCard({
-  todo,
-  index,
-  id,
-  innerRef,
-  draggableProps,
-  dragHandleProps,
-}: TodoProps) {
+function TodoCard({ todo, index, id, innerRef, draggableProps, dragHandleProps }: TodoProps) {
   const [deleteTask] = useBoardStore((state) => [state.deleteTask])
   const [imageURL, setImageURL] = useState<string | null>(null)
 

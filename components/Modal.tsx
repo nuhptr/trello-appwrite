@@ -13,20 +13,18 @@ import TaskTypeRadioGroup from './TaskTypeRadioGroup'
 function Modal() {
   const imagePickerRef = useRef<HTMLInputElement>(null)
 
-  const [addTask, newTaskInput, setNewTaskInput, image, setImage, newTaskType] =
-    useBoardStore((state) => [
+  const [addTask, newTaskInput, setNewTaskInput, image, setImage, newTaskType] = useBoardStore(
+    (state) => [
       state.addTask,
       state.newTaskInput,
       state.setNewTaskInput,
       state.image,
       state.setImage,
       state.newTaskType,
-    ])
+    ]
+  )
 
-  const [isOpen, closeModal] = useModalStore((state) => [
-    state.isOpen,
-    state.closeModal,
-  ])
+  const [isOpen, closeModal] = useModalStore((state) => [state.isOpen, state.closeModal])
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -39,11 +37,7 @@ function Modal() {
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog
-        as='form'
-        onSubmit={handleSubmit}
-        className='relative z-10'
-        onClose={closeModal}>
+      <Dialog as='form' onSubmit={handleSubmit} className='relative z-10' onClose={closeModal}>
         <Transition.Child
           as={Fragment}
           enter='ease-out duration-300'
@@ -66,9 +60,7 @@ function Modal() {
               leaveFrom='opacity-100'
               leaveTo='opacity-0'>
               <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
-                <Dialog.Title
-                  as='h3'
-                  className='text-lg font-medium leading-6 text-gray-900 pb-2'>
+                <Dialog.Title as='h3' className='text-lg font-medium leading-6 text-gray-900 pb-2'>
                   Add a Task
                 </Dialog.Title>
 

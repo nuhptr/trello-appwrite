@@ -7,11 +7,7 @@ export const metadata: Metadata = {
   description: 'Next generation open-source app for Trello created by nuhptr',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <body suppressHydrationWarning={true} className='bg-[#f5f6f8]'>

@@ -7,14 +7,12 @@ import { useBoardStore } from '@/store/BoardStore'
 import Column from './Column'
 
 function Board() {
-  const [board, getBoard, setBoardState, updateTodoInDB] = useBoardStore(
-    (state) => [
-      state.board,
-      state.getBoard,
-      state.setBoardState,
-      state.updateTodoInDB,
-    ]
-  )
+  const [board, getBoard, setBoardState, updateTodoInDB] = useBoardStore((state) => [
+    state.board,
+    state.getBoard,
+    state.setBoardState,
+    state.updateTodoInDB,
+  ])
 
   useEffect(() => {
     getBoard()
