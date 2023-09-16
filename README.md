@@ -9,40 +9,23 @@ before you start, you need clone and install dependencies using `npm install` or
 if you want access domain withour CORS error in appwrite you can change
 domain from localhost to `*` in appwrite dashboard
 
-```bash
-# add .env.local file with your appwrite project id and database id
-NEXT_PUBLIC_APPWRITE_PROJECT_ID=
-NEXT_PUBLIC_DATABASE_ID=
-NEXT_PUBLIC_TODOS_COLLECTION_ID=
+- add .env.local file with your appwrite project id and database id
+  NEXT_PUBLIC_APPWRITE_PROJECT_ID=
+  NEXT_PUBLIC_DATABASE_ID=
+  NEXT_PUBLIC_TODOS_COLLECTION_ID=
 
-# add openai with your api key
-OPENAI_API_KEY=
-```
+- add openai with your api key
+  OPENAI_API_KEY=
 
 ## Dependencies
 
-```bash
-# Heroicons
-npm install @heroicons/react
-
-# react-avatar
-npm install react-avatar --save
-
-# react-beautiful-dnd (Drag and Drop)
-npm install react-beautiful-dnd --save & npm install @types/react-beautiful-dnd --save-dev
-
-# appwrite (database)
-npm install appwrite
-
-# zustand (state management)
-npm install zustand
-
-# openAI (AI)
-npm install openai
-
-# headlessUI (modal)
-npm install @headlessui/react
-```
+- [@heroicons/react](https://github.com/tailwindlabs/heroicons#readme) - npm install @heroicons/react
+- [react-avatar](https://www.npmjs.com/package/react-avatar) - npm install react-avatar --save
+- [react-beautiful-dnd (Drag and Drop)](https://www.npmjs.com/package/react-beautiful-dnd) - npm install react-beautiful-dnd --save & npm install @types/react-beautiful-dnd --save-dev
+- [appwrite (database)](https://appwrite.io/) - npm install appwrite
+- [zustand (state management)](https://github.com/pmndrs/zustand) - npm install zustand
+- [openAI (AI)](https://www.npmjs.com/package/openai) - npm install openai
+- [headlessUI (modal)](https://headlessui.com/) - npm install @headlessui/react
 
 ## Learn More
 
