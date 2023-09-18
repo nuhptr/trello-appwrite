@@ -1,4 +1,4 @@
-import Modal from '@/components/Modal'
+import Modal from '@/components/modals'
 import './globals.css'
 import type { Metadata } from 'next'
 
@@ -11,10 +11,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body suppressHydrationWarning={true} className='bg-[#f5f6f8]'>
-        {children}
-
-        {/* don't forget add module to this file */}
         <Modal />
+        {children}
       </body>
     </html>
   )
