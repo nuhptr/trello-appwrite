@@ -1,4 +1,4 @@
-import formatTodoForAI from './formatTodoForAI'
+import formatTodoForAI from './format-todo-for-ai'
 
 const fetchSuggestion = async (board: Board) => {
   const todos = formatTodoForAI(board)
