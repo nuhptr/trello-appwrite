@@ -1,9 +1,9 @@
 import { PlusCircleIcon } from '@heroicons/react/24/solid'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 
-import TodoCard from './TodoCard'
-import { useBoardStore } from '@/store/BoardStore'
-import { useModalStore } from '@/store/ModalStore'
+import TodoCard from './todo-card'
+import { useBoardStore } from '@/store/board-store'
+import { useModalStore } from '@/store/modal-store'
 
 interface ColumnProps {
   id: TypeColumn
@@ -17,7 +17,7 @@ const idToColumnText: { [key in TypeColumn]: string } = {
   done: 'Done',
 }
 
-function Column({ id, todos, index }: ColumnProps) {
+export default function Column({ id, todos, index }: ColumnProps) {
   const [searchString, setNewTaskType] = useBoardStore((state) => [
     state.searchString,
     state.setNewTaskType,
@@ -94,5 +94,3 @@ function Column({ id, todos, index }: ColumnProps) {
     </Draggable>
   )
 }
-
-export default Column

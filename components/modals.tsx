@@ -5,12 +5,12 @@ import { Dialog, Transition } from '@headlessui/react'
 import { PhotoIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 
-import { useModalStore } from '@/store/ModalStore'
-import { useBoardStore } from '@/store/BoardStore'
+import { useModalStore } from '@/store/modal-store'
+import { useBoardStore } from '@/store/board-store'
 
-import TaskTypeRadioGroup from './TaskTypeRadioGroup'
+import TaskTypeRadioGroup from './task-type-radio-group'
 
-function Modal() {
+export default function Modal() {
   const imagePickerRef = useRef<HTMLInputElement>(null)
 
   const [addTask, newTaskInput, setNewTaskInput, image, setImage, newTaskType] = useBoardStore(
@@ -128,5 +128,3 @@ function Modal() {
     </Transition>
   )
 }
-
-export default Modal

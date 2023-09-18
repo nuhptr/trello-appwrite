@@ -1,30 +1,15 @@
 import { RadioGroup } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/24/solid'
 
-import { useBoardStore } from '@/store/BoardStore'
+import { useBoardStore } from '@/store/board-store'
 
 const types = [
-  {
-    id: 'todo',
-    name: 'Todo',
-    description: 'A new task to be done',
-    color: 'bg-red-500',
-  },
-  {
-    id: 'inprogress',
-    name: 'In Progress',
-    description: 'A task that is in progress',
-    color: 'bg-yellow-500',
-  },
-  {
-    id: 'done',
-    name: 'Done',
-    description: 'A task that is done',
-    color: 'bg-green-500',
-  },
+  { id: 'todo', name: 'Todo', description: 'A new task to be done', color: 'bg-red-500' },
+  { id: 'inprogress', name: 'In Progress', description: 'in-progress', color: 'bg-yellow-500' },
+  { id: 'done', name: 'Done', description: 'A task that is done', color: 'bg-green-500' },
 ]
 
-function TaskTypeRadioGroup() {
+export default function TaskTypeRadioGroup() {
   const [newTaskType, setNewTaskType] = useBoardStore((state) => [
     state.newTaskType,
     state.setNewTaskType,
@@ -78,5 +63,3 @@ function TaskTypeRadioGroup() {
     </div>
   )
 }
-
-export default TaskTypeRadioGroup

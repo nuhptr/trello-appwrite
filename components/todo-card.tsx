@@ -5,8 +5,8 @@ import {
   DraggableProvidedDraggableProps,
 } from 'react-beautiful-dnd'
 
-import { useBoardStore } from '@/store/BoardStore'
-import getUrl from '@/utils/getUrl'
+import { useBoardStore } from '@/store/board-store'
+import getUrl from '@/utils/get-url'
 import Image from 'next/image'
 
 interface TodoProps {
@@ -18,7 +18,14 @@ interface TodoProps {
   dragHandleProps: DraggableProvidedDragHandleProps | null | undefined
 }
 
-function TodoCard({ todo, index, id, innerRef, draggableProps, dragHandleProps }: TodoProps) {
+export default function TodoCard({
+  todo,
+  index,
+  id,
+  innerRef,
+  draggableProps,
+  dragHandleProps,
+}: TodoProps) {
   const [deleteTask] = useBoardStore((state) => [state.deleteTask])
   const [imageURL, setImageURL] = useState<string | null>(null)
 
@@ -63,5 +70,3 @@ function TodoCard({ todo, index, id, innerRef, draggableProps, dragHandleProps }
     </div>
   )
 }
-
-export default TodoCard

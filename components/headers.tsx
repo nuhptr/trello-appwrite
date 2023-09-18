@@ -6,10 +6,10 @@ import { useEffect, useState } from 'react'
 import { MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Avatar from 'react-avatar'
 
-import { useBoardStore } from '@/store/BoardStore'
-import fetchSuggestion from '@/utils/fetchSuggestion'
+import { useBoardStore } from '@/store/board-store'
+import fetchSuggestion from '@/utils/fetch-suggestion'
 
-function Header() {
+export default function Header() {
   const router = useRouter()
   const [board, searchString, setSearchString] = useBoardStore((state) => [
     state.board,
@@ -80,5 +80,3 @@ function Header() {
     </header>
   )
 }
-
-export default Header

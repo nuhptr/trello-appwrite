@@ -3,10 +3,10 @@
 import { useEffect } from 'react'
 import { DragDropContext, DropResult, Droppable } from 'react-beautiful-dnd'
 
-import { useBoardStore } from '@/store/BoardStore'
-import Column from './Column'
+import { useBoardStore } from '@/store/board-store'
+import Column from './columns'
 
-function Board() {
+export default function Board() {
   const [board, getBoard, setBoardState, updateTodoInDB] = useBoardStore((state) => [
     state.board,
     state.getBoard,
@@ -20,10 +20,6 @@ function Board() {
 
   const handleOnDragEnd = (result: DropResult) => {
     const { destination, source, type } = result
-
-    /**
-     * If there is no destination, we don't need to do anything
-     */
     if (!destination) return
 
     /**
@@ -121,5 +117,3 @@ function Board() {
     </DragDropContext>
   )
 }
-
-export default Board
