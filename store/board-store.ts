@@ -1,8 +1,8 @@
 import { create } from 'zustand'
-import { getTodosGrupedByColumn } from '@/utils/getTodosGroupedByColumn'
+import { getTodosGrupedByColumn } from '@/utils/get-todos-grouped-by-column'
 import { ID, databases, storage } from '@/appwrite'
 
-import uploadImage from '@/utils/uploadImage'
+import uploadImage from '@/utils/upload-image'
 
 interface BoardState {
   board: Board
