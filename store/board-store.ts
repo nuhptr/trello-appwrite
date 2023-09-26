@@ -1,7 +1,7 @@
 import { create } from 'zustand'
+
 import { getTodosGrupedByColumn } from '@/utils/get-todos-grouped-by-column'
 import { ID, databases, storage } from '@/appwrite'
-
 import uploadImage from '@/utils/upload-image'
 
 interface BoardState {
@@ -48,10 +48,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
       process.env.NEXT_PUBLIC_DATABASE_ID!,
       process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!,
       todo.$id,
-      {
-        title: todo.title,
-        status: columnId,
-      }
+      { title: todo.title, status: columnId }
     )
   },
 
@@ -65,12 +62,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
 
     if (image) {
       const fileUploaded = await uploadImage(image)
-      if (fileUploaded) {
-        file = {
-          bucketId: fileUploaded.bucketId,
-          fileId: fileUploaded.$id,
-        }
-      }
+      if (fileUploaded) file = { bucketId: fileUploaded.bucketId, fileId: fileUploaded.$id }
     }
 
     const { $id } = await databases.createDocument(
@@ -100,11 +92,8 @@ export const useBoardStore = create<BoardState>((set, get) => ({
 
       const columns = newColumns.get(columnId)
 
-      if (!columns) {
-        newColumns.set(columnId, { id: columnId, todos: [newTodo] })
-      } else {
-        newColumns.get(columnId)?.todos.push(newTodo)
-      }
+      if (!columns) newColumns.set(columnId, { id: columnId, todos: [newTodo] })
+      else newColumns.get(columnId)?.todos.push(newTodo)
 
       return { board: { columns: newColumns } }
     })
@@ -120,9 +109,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
     newColumns.get(id)?.todos.splice(taskIndex, 1)
     set({ board: { columns: newColumns } })
 
-    if (todo.image) {
-      await storage.deleteFile(todo.image.bucketId, todo.image.fileId)
-    }
+    if (todo.image) await storage.deleteFile(todo.image.bucketId, todo.image.fileId)
 
     await databases.deleteDocument(
       process.env.NEXT_PUBLIC_DATABASE_ID!,

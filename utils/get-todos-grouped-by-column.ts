@@ -54,9 +54,7 @@ export const getTodosGrupedByColumn = async () => {
   /**
    * Create a board object with the sorted columns and return it
    */
-  const board: Board = {
-    columns: sortedColumns,
-  }
+  const board: Board = { columns: sortedColumns }
 
   return board
 }
