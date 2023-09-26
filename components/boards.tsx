@@ -55,10 +55,7 @@ export default function Board() {
     console.log(startCol, finishCol)
 
     if (!startCol || !finishCol) return
-
-    if (source.index === destination.index && startCol === finishCol) {
-      return
-    }
+    if (source.index === destination.index && startCol === finishCol) return
 
     const newTodos = startCol.todos
     const [todoMoved] = newTodos.splice(source.index, 1)
@@ -66,10 +63,8 @@ export default function Board() {
     if (startCol.id === finishCol.id) {
       /** NOTE: Same Column Task Drag */
       newTodos.splice(destination.index, 0, todoMoved)
-      const newColumn = {
-        id: startCol.id,
-        todos: newTodos,
-      }
+      const newColumn = { id: startCol.id, todos: newTodos }
+
       const newColumns = new Map(board.columns)
       newColumns.set(startCol.id, newColumn)
 
@@ -80,21 +75,15 @@ export default function Board() {
       finishTodos.splice(destination.index, 0, todoMoved)
 
       const newColumns = new Map(board.columns)
-      const newCol = {
-        id: startCol.id,
-        todos: newTodos,
-      }
+      const newCol = { id: startCol.id, todos: newTodos }
+
       newColumns.set(startCol.id, newCol)
-      newColumns.set(finishCol.id, {
-        id: finishCol.id,
-        todos: finishTodos,
-      })
+      newColumns.set(finishCol.id, { id: finishCol.id, todos: finishTodos })
 
       /**
        * NOTE: Update The Todo in the DB
        */
       updateTodoInDB(todoMoved, finishCol.id)
-
       setBoardState({ ...board, columns: newColumns })
     }
   }
