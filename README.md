@@ -2,6 +2,8 @@
 
 This is a simple Trello clone built with [Next.js](https://nextjs.org/), [Appwrite](https://appwrite.io/), and [Tailwind CSS](https://tailwindcss.com/), also [HeadlessUI](https://headlessui.dev/).
 
+![Trello Image](https://github.com/nuhptr/nextjs-tsm/assets/50306963/a5c38769-567b-47fc-a5c6-f604c407ea69)
+
 ## Getting Started
 
 before you start, you need clone and install dependencies using `npm install` or `yarn install`
