@@ -5,8 +5,8 @@ import { OpenAI } from 'openai'
  * New method of instantiating the OpenAI class
  * */
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-  organization: 'org-tlvpOHLRhO8U4uazZ7lvYDOv',
+   apiKey: process.env.OPENAI_API_KEY,
+   organization: 'org-tlvpOHLRhO8U4uazZ7lvYDOv',
 })
 
 export default openai
