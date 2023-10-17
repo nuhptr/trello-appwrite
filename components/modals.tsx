@@ -13,14 +13,16 @@ import TaskTypeRadioGroup from './task-type-radio-group'
 export default function Modal() {
    const imagePickerRef = useRef<HTMLInputElement>(null)
 
-   const [addTask, newTaskInput, setNewTaskInput, image, setImage, newTaskType] = useBoardStore((state) => [
-      state.addTask,
-      state.newTaskInput,
-      state.setNewTaskInput,
-      state.image,
-      state.setImage,
-      state.newTaskType,
-   ])
+   const [addTask, newTaskInput, setNewTaskInput, image, setImage, newTaskType] = useBoardStore(
+      (state) => [
+         state.addTask,
+         state.newTaskInput,
+         state.setNewTaskInput,
+         state.image,
+         state.setImage,
+         state.newTaskType,
+      ]
+   )
 
    const [isOpen, closeModal] = useModalStore((state) => [state.isOpen, state.closeModal])
 
@@ -57,8 +59,12 @@ export default function Modal() {
                      leave='ease-in duration-200'
                      leaveFrom='opacity-100'
                      leaveTo='opacity-0'>
-                     <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
-                        <Dialog.Title as='h3' className='text-lg font-medium leading-6 text-gray-900 pb-2'>
+                     <Dialog.Panel
+                        className='w-full max-w-md transform overflow-hidden rounded-2xl 
+                        bg-white p-6 text-left align-middle shadow-xl transition-all'>
+                        <Dialog.Title
+                           as='h3'
+                           className='text-lg font-medium leading-6 text-gray-900 pb-2'>
                            Add a Task
                         </Dialog.Title>
 
@@ -80,7 +86,8 @@ export default function Modal() {
                               onClick={() => {
                                  imagePickerRef.current?.click()
                               }}
-                              className='w-full border border-gray-300 rounded-md outline-none p-5 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
+                              className='w-full border border-gray-300 rounded-md outline-none p-5 
+                              focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
                               <PhotoIcon className='h-6 w-6 inline-block' />
                               Upload Image
                            </button>

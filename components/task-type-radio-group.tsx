@@ -10,7 +10,10 @@ const types = [
 ]
 
 export default function TaskTypeRadioGroup() {
-   const [newTaskType, setNewTaskType] = useBoardStore((state) => [state.newTaskType, state.setNewTaskType])
+   const [newTaskType, setNewTaskType] = useBoardStore((state) => [
+      state.newTaskType,
+      state.setNewTaskType,
+   ])
 
    return (
       <div className='w-full py-5'>
@@ -33,12 +36,16 @@ export default function TaskTypeRadioGroup() {
                                     <div className='text-sm'>
                                        <RadioGroup.Label
                                           as='p'
-                                          className={`font-bold ${checked ? 'text-white' : 'text-gray-900'}`}>
+                                          className={`font-bold ${
+                                             checked ? 'text-white' : 'text-gray-900'
+                                          }`}>
                                           {type.name}
                                        </RadioGroup.Label>
                                        <RadioGroup.Description
                                           as='span'
-                                          className={`inline ${checked ? 'text-white' : 'text-gray-500'}`}>
+                                          className={`inline ${
+                                             checked ? 'text-white' : 'text-gray-500'
+                                          }`}>
                                           <span>{type.description}</span>
                                        </RadioGroup.Description>
                                     </div>

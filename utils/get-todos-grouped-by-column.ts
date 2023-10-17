@@ -46,7 +46,9 @@ export const getTodosGrupedByColumn = async () => {
     * 1. todo first (index 0) then inprogress (index 1) then done (index 2)
     */
    const sortedColumns = new Map(
-      Array.from(columns.entries()).sort((a, b) => columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0]))
+      Array.from(columns.entries()).sort(
+         (a, b) => columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0])
+      )
    )
 
    /**

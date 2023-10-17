@@ -18,7 +18,10 @@ const idToColumnText: { [key in TypeColumn]: string } = {
 }
 
 export default function Column({ id, todos, index }: ColumnProps) {
-   const [searchString, setNewTaskType] = useBoardStore((state) => [state.searchString, state.setNewTaskType])
+   const [searchString, setNewTaskType] = useBoardStore((state) => [
+      state.searchString,
+      state.setNewTaskType,
+   ])
    const openModal = useModalStore((state) => state.openModal)
 
    const handleAddTodo = () => {
@@ -78,7 +81,9 @@ export default function Column({ id, todos, index }: ColumnProps) {
                            {provided.placeholder}
 
                            <div className='flex items-end justify-end p-2'>
-                              <button onClick={handleAddTodo} className='text-green-500 hover:text-green-600'>
+                              <button
+                                 onClick={handleAddTodo}
+                                 className='text-green-500 hover:text-green-600'>
                                  <PlusCircleIcon className='h-10 w-10' />
                               </button>
                            </div>
