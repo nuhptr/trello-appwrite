@@ -1,3 +1,4 @@
+// FOR LEARN PURPOSE ONLY
 const formatTodoForAI = (board: Board) => {
    const todos = Array.from(board.columns.entries())
 
@@ -6,9 +7,7 @@ const formatTodoForAI = (board: Board) => {
       return map
    }, {} as { [key in TypeColumn]: Todo[] })
 
-   /**
-    * Reduce to key: value(length) pairs
-    */
+   // Reduce to key: value(length) pairs
    const flatArrayCounted = Object.entries(flatArray).reduce((map, [key, value]) => {
       map[key as TypeColumn] = value.length
       return map

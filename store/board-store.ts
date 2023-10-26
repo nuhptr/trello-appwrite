@@ -32,9 +32,7 @@ interface BoardState {
    setImage: (image: File | null) => void
 }
 
-/**
- * Create a store with Zustand and export it as a hook
- */
+// Create a store with Zustand and export it as a hook
 export const useBoardStore = create<BoardState>((set, get) => ({
    board: { columns: new Map<TypeColumn, Column>() },
    getBoard: async () => {
@@ -42,7 +40,8 @@ export const useBoardStore = create<BoardState>((set, get) => ({
       set({ board })
    },
    setBoardState: (board) => set({ board }),
-   // update todo in db
+
+   // TODO: update todo in db
    updateTodoInDB: async (todo, columnId) => {
       await databases.updateDocument(
          process.env.NEXT_PUBLIC_DATABASE_ID!,
@@ -56,7 +55,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
    searchString: "",
    setSearchString: (searchString) => set({ searchString }),
 
-   // add task
+   // TODO: add task
    addTask: async (todo: string, columnId: TypeColumn, image?: File | null) => {
       let file: Image | undefined
 
@@ -99,13 +98,11 @@ export const useBoardStore = create<BoardState>((set, get) => ({
       })
    },
 
-   // delete task
+   // TODO: delete task
    deleteTask: async (taskIndex: number, todo: Todo, id: TypeColumn) => {
       const newColumns = new Map(get().board.columns)
 
-      /**
-       * Remove the todo from the newColumns map
-       */
+      // Remove the todo from the newColumns map
       newColumns.get(id)?.todos.splice(taskIndex, 1)
       set({ board: { columns: newColumns } })
 

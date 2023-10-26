@@ -9,28 +9,21 @@ export const getTodosGrupedByColumn = async () => {
    const todos = data.documents
 
    const columns = todos.reduce((previous, todo) => {
-      if (!previous.get(todo.status)) {
-         previous.set(todo.status, { id: todo.status, todos: [] })
-      }
+      if (!previous.get(todo.status)) previous.set(todo.status, { id: todo.status, todos: [] })
 
       previous.get(todo.status)!.todos.push({
          $id: todo.$id,
          $createdAt: todo.$createdAt,
          title: todo.title,
          status: todo.status,
-
-         /**
-          * If todo.image exists, parse it from a string to an object
-          */
+         // If todo.image exists, parse it from a string to an object
          ...(todo.image && { image: JSON.parse(todo.image) }),
       })
 
       return previous
    }, new Map<TypeColumn, Column>())
 
-   /**
-    * If a column is missing, add it to the columns map with an empty array of todoss
-    */
+   // If a column is missing, add it to the columns map with an empty array of todoss
    const columnTypes: TypeColumn[] = ["todo", "inprogress", "done"]
 
    for (const columnType of columnTypes) {
@@ -41,18 +34,13 @@ export const getTodosGrupedByColumn = async () => {
 
    console.log(columns)
 
-   /**
-    * Sort columns by columnTypes
-    * 1. todo first (index 0) then inprogress (index 1) then done (index 2)
-    */
+   // Sort columns by columnTypes
+   // 1. todo first (index 0) then inprogress (index 1) then done (index 2)
    const sortedColumns = new Map(
       Array.from(columns.entries()).sort((a, b) => columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0]))
    )
 
-   /**
-    * Create a board object with the sorted columns and return it
-    */
+   // Create a board object with the sorted columns and return it
    const board: Board = { columns: sortedColumns }
-
    return board
 }
