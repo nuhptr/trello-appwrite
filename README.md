@@ -13,35 +13,36 @@ domain from localhost to `*` in appwrite dashboard
 
 add .env.local file with your appwrite project id and database id
 
-- NEXT_PUBLIC_APPWRITE_PROJECT_ID=
-- NEXT_PUBLIC_DATABASE_ID=
-- NEXT_PUBLIC_TODOS_COLLECTION_ID=
+-  NEXT_PUBLIC_APPWRITE_PROJECT_ID=
+-  NEXT_PUBLIC_DATABASE_ID=
+-  NEXT_PUBLIC_TODOS_COLLECTION_ID=
 
 add openai with your api key
 
-- OPENAI_API_KEY=
+-  OPENAI_API_KEY=
 
 ## Dependencies
 
-- [@heroicons/react](https://github.com/tailwindlabs/heroicons#readme) - npm install @heroicons/react
-- [react-avatar](https://www.npmjs.com/package/react-avatar) - npm install react-avatar --save
-- [react-beautiful-dnd (Drag and Drop)](https://www.npmjs.com/package/react-beautiful-dnd) - npm install react-beautiful-dnd --save & npm install @types/react-beautiful-dnd --save-dev
-- [appwrite (database)](https://appwrite.io/) - npm install appwrite
-- [zustand (state management)](https://github.com/pmndrs/zustand) - npm install zustand
-- [openAI (AI)](https://www.npmjs.com/package/openai) - npm install openai
-- [headlessUI (modal)](https://headlessui.com/) - npm install @headlessui/react
+-  [@heroicons/react](https://github.com/tailwindlabs/heroicons#readme) - npm install @heroicons/react
+-  [react-avatar](https://www.npmjs.com/package/react-avatar) - npm install react-avatar --save
+-  [react-beautiful-dnd (Drag and Drop)](https://www.npmjs.com/package/react-beautiful-dnd) - npm install react-beautiful-dnd --save & npm install @types/react-beautiful-dnd --save-dev
+-  Alternative - [@hello-pangea/dnd](https://www.npmjs.com/package/@hello-pangea/dnd) - npm install @hello-pangea/dnd
+-  [appwrite (database)](https://appwrite.io/) - npm install appwrite
+-  [zustand (state management)](https://github.com/pmndrs/zustand) - npm install zustand
+-  [openAI (AI)](https://www.npmjs.com/package/openai) - npm install openai
+-  [headlessUI (modal)](https://headlessui.com/) - npm install @headlessui/react
 
 ## Learn More
 
 To learn how to use openAI, take a look at the following resources:
 
-- [OpenAI API](https://beta.openai.com/docs/api-reference/introduction) - learn about OpenAI API.
-- [OpenAI Playground](https://beta.openai.com/playground) - an interactive OpenAI Playground.
+-  [OpenAI API](https://beta.openai.com/docs/api-reference/introduction) - learn about OpenAI API.
+-  [OpenAI Playground](https://beta.openai.com/playground) - an interactive OpenAI Playground.
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-  [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-  [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 ## Deploy on Vercel
 
