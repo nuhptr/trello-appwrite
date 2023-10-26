@@ -2,15 +2,10 @@ import openai from "@/openai"
 import { NextResponse } from "next/server"
 
 export async function POST(request: Request) {
-   /**
-    * Get todos from the request body
-    */
+   // Get todos from the request body
    const { todos } = await request.json()
-   console.log(todos)
 
-   /**
-    * Create a completion using the engine specified in the model parameter.
-    */
+   // Create a completion using the engine specified in the model parameter.
    const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       temperature: 0.8,
@@ -30,10 +25,8 @@ export async function POST(request: Request) {
       ],
    })
 
-   /**
-    * new response format for getting data from openai
-    * instead of using { data }, now we access the data directly
-    */
+   // new response format for getting data from openai
+   // instead of using { data }, now we access the data directly
    const { created, model, choices } = response
 
    console.log(created, model, choices)
