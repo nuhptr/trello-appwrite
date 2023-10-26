@@ -1,5 +1,5 @@
 import { PlusCircleIcon } from "@heroicons/react/24/solid"
-import { Draggable, Droppable } from "react-beautiful-dnd"
+import { Draggable, Droppable } from "@hello-pangea/dnd"
 
 import TodoCard from "./todo-card"
 import { useBoardStore } from "@/store/board-store"
@@ -18,8 +18,9 @@ const idToColumnText: { [key in TypeColumn]: string } = {
 }
 
 export default function Column({ id, todos, index }: ColumnProps) {
-   const [searchString, setNewTaskType] = useBoardStore((state) => [state.searchString, state.setNewTaskType])
    const openModal = useModalStore((state) => state.openModal)
+
+   const [searchString, setNewTaskType] = useBoardStore((state) => [state.searchString, state.setNewTaskType])
 
    const handleAddTodo = () => {
       setNewTaskType(id)

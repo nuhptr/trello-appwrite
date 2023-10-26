@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { XCircleIcon } from "@heroicons/react/24/solid"
-import { DraggableProvidedDragHandleProps, DraggableProvidedDraggableProps } from "react-beautiful-dnd"
+import { DraggableProvidedDragHandleProps, DraggableProvidedDraggableProps } from "@hello-pangea/dnd"
 
 import { useBoardStore } from "@/store/board-store"
 import getUrl from "@/utils/get-url"

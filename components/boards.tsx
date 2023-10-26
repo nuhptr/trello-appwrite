@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd"
+import { DragDropContext, DropResult, Droppable } from "@hello-pangea/dnd"
 
 import { useBoardStore } from "@/store/board-store"
 import Column from "./columns"
