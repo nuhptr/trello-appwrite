@@ -1,8 +1,8 @@
-import { create } from 'zustand'
+import { create } from "zustand"
 
-import { getTodosGrupedByColumn } from '@/utils/get-todos-grouped-by-column'
-import { ID, databases, storage } from '@/appwrite'
-import uploadImage from '@/utils/upload-image'
+import { getTodosGrupedByColumn } from "@/utils/get-todos-grouped-by-column"
+import { ID, databases, storage } from "@/appwrite"
+import uploadImage from "@/utils/upload-image"
 
 interface BoardState {
    board: Board
@@ -53,7 +53,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
    },
 
    // search state
-   searchString: '',
+   searchString: "",
    setSearchString: (searchString) => set({ searchString }),
 
    // add task
@@ -77,7 +77,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
          }
       )
 
-      set({ newTaskInput: '' })
+      set({ newTaskInput: "" })
       set((state) => {
          const newColumns = new Map(state.board.columns)
 
@@ -116,15 +116,15 @@ export const useBoardStore = create<BoardState>((set, get) => ({
          process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!,
          todo.$id
       )
-      console.log('deleted')
+      console.log("deleted")
    },
 
    // add task
-   newTaskInput: '',
+   newTaskInput: "",
    setNewTaskInput: (input: string) => set({ newTaskInput: input }),
 
    // new task type
-   newTaskType: 'todo',
+   newTaskType: "todo",
    setNewTaskType: (columnId: TypeColumn) => set({ newTaskType: columnId }),
 
    // image

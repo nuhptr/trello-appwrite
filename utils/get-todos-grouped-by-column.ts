@@ -1,4 +1,4 @@
-import { databases } from '@/appwrite'
+import { databases } from "@/appwrite"
 
 export const getTodosGrupedByColumn = async () => {
    const data = await databases.listDocuments(
@@ -31,7 +31,7 @@ export const getTodosGrupedByColumn = async () => {
    /**
     * If a column is missing, add it to the columns map with an empty array of todoss
     */
-   const columnTypes: TypeColumn[] = ['todo', 'inprogress', 'done']
+   const columnTypes: TypeColumn[] = ["todo", "inprogress", "done"]
 
    for (const columnType of columnTypes) {
       if (!columns.get(columnType)) {
@@ -46,9 +46,7 @@ export const getTodosGrupedByColumn = async () => {
     * 1. todo first (index 0) then inprogress (index 1) then done (index 2)
     */
    const sortedColumns = new Map(
-      Array.from(columns.entries()).sort(
-         (a, b) => columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0])
-      )
+      Array.from(columns.entries()).sort((a, b) => columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0]))
    )
 
    /**

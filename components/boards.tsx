@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { useEffect } from 'react'
-import { DragDropContext, DropResult, Droppable } from 'react-beautiful-dnd'
+import { useEffect } from "react"
+import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd"
 
-import { useBoardStore } from '@/store/board-store'
-import Column from './columns'
+import { useBoardStore } from "@/store/board-store"
+import Column from "./columns"
 
 export default function Board() {
    const [board, getBoard, setBoardState, updateTodoInDB] = useBoardStore((state) => [
@@ -26,7 +26,7 @@ export default function Board() {
        * If type is column, we need to rearrange the columns in the board state and return
        * as we don't need to update the todos in the db for column rearrangement
        */
-      if (type === 'column') {
+      if (type === "column") {
          const entries = Array.from(board.columns.entries())
          const [removed] = entries.splice(source.index, 1)
          entries.splice(destination.index, 0, removed)
@@ -90,10 +90,10 @@ export default function Board() {
 
    return (
       <DragDropContext onDragEnd={handleOnDragEnd}>
-         <Droppable droppableId='board' direction='horizontal' type='column'>
+         <Droppable droppableId="board" direction="horizontal" type="column">
             {(provided) => (
                <div
-                  className='grid grid-cols-1 md:grid-cols-3 gap-5 max-w-7xl mx-auto'
+                  className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-7xl mx-auto"
                   {...provided.droppableProps}
                   ref={provided.innerRef}>
                   {/* NOTE: Rendering all the column */}

@@ -1,5 +1,5 @@
-import Board from '@/components/boards'
-import Header from '@/components/headers'
+import Board from "@/components/boards"
+import Header from "@/components/headers"
 
 export default function Home() {
    return (
